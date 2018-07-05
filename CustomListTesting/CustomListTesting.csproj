@@ -48,6 +48,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyListTestingRemove.cs" />
+    <Compile Include="MyListTestingAdd.cs" />
     <Compile Include="CalculatorTesting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
