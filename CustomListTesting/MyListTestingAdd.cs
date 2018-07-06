@@ -15,11 +15,10 @@ namespace CustomListTesting
             int expected = 1;
 
             MyList<int> myList = new MyList<int>();
-            int[] actual = myList.Add(1);
+            myList.Add(1);
 
-            Assert.AreEqual(expected, actual[0]);
-               
-
+            Assert.AreEqual(expected, myList[0]);
+                       
             }
 
 
@@ -33,10 +32,10 @@ namespace CustomListTesting
 
             //act
             MyList<string> myList = new MyList<string>();
-            string[] actual = myList.Add("dude");
+            myList.Add("dude");
 
             //assert
-            Assert.AreEqual(expected, actual[0]);
+            Assert.AreEqual(expected, myList[0]);
 
         }
 
@@ -45,48 +44,99 @@ namespace CustomListTesting
 
         public void AddTwoItemsToArray()
         {
-
             // arrange
-            int[] expected = { 6, 3 };
+            int expected = 3;
 
             //act
-            MyList<int[]> myList = new MyList<int[]>();
-            int[] actual = myList.Add(expected);
+            MyList<int> myList = new MyList<int>();
+            myList.Add(6);
+            myList.Add(3);
 
             //assert
-            Assert.AreEqual(expected[0], actual[0]);
-            Assert.AreEqual(expected[1], actual[1]);
-        }
-
-
-        [TestMethod]
-
-        public void x()
-        {
-
-            // arrange
-
-
-            //act
-
-
-            //assert
-
+          //   Assert.AreEqual(expected[0], actual[0]);// dont really need to check the first number since its been checked before
+            Assert.AreEqual(expected, myList[1]);
         }
 
         [TestMethod]
 
-        public void x()
+        public void AddingToCounter()
         {
-
-            // arrange
-
+            //arrange
+            int expected = 3;
 
             //act
+            MyList<int> mylist = new MyList<int>();
+            mylist.Add(63);
+            mylist.Add(102);
+            mylist.Add(23);
+
+            //assert
+            Assert.AreEqual(expected, mylist.count);
+
+        }
+
+
+
+
+
+
+
+        [TestMethod]
+        public void CheckingExceptionAdd()
+        {
+            int expected = 2;
+
+            MyList<int> myList = new MyList<int>();
+            myList.Add(1);
+
+
+            Assert.AreEqual(expected, myList[1]);
+
+        }
+
+
+        [TestMethod]
+        public void AddingToCapacity()
+        {
+            //arrange
+            int expected = 10;
+
+            //act
+            MyList<int> mylist = new MyList<int>();
+            mylist.Add(63);
+            mylist.Add(102);
+            mylist.Add(23);
+            mylist.Add(67);
+            mylist.Add(33);
+            mylist.Add(69);
 
 
             //assert
+            Assert.AreEqual(expected, mylist.capacity);
+        }
 
+
+        [TestMethod]
+        public void AddTwoArrays()
+        {
+            // arrange
+            string[] arrayOne = { "b", "u" };
+            string[] arrayTwo = { "t", "t" };
+
+            string[,] expected = { { "b", "u", }, { "t", "t" } };
+
+
+            //act
+            MyList<string[]> mylist = new MyList<string[]>();
+            mylist.Add(arrayOne);
+            mylist.Add(arrayTwo);
+
+            //assert
+            // Assert.AreEqual(expected[0,0], mylist[0]);
+            //  Assert.AreEqual(expected[0,1], mylist[1]);
+
+            Assert.AreEqual(expected[0, 2], mylist[2]);
+            Assert.AreEqual(expected[0, 3], mylist[3]);
         }
 
     }
