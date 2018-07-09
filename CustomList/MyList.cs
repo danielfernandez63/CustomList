@@ -6,11 +6,27 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class MyList <T>
+    public class MyList<T>
     {
         T[] array;
         public int count;
         public int capacity;
+
+        //public int Capacity()
+        //{
+        //    get
+        //        {
+        //         return capacity;
+
+        //    }
+        //     set
+        //        {
+
+
+        //    }
+           
+
+        //}
 
         public T this[int i] { get { return array[i]; } set { array[i] = value; } }
 
@@ -24,22 +40,23 @@ namespace CustomList
 
         public T[] Add(T item)
         {
-            if (count > 4)
+            if (count > capacity - 5)
             {
                 MoreArrayNeeded();
 
-            }         
-                array[count] = item;
-                count++;
-                return CurrentArray();     
+            }
+            array[count] = item;
+            count++;
+            return CurrentArray();
         }
 
         public void MoreArrayNeeded()
         {
             if (count % 5 == 0)
             {
-                T[] newArray = new T[count + 5];
-                for (int i=0; i < count; i++)
+                capacity += 5;
+                T[] newArray = new T[capacity];
+                for (int i = 0; i < count; i++)
                 {
                     newArray[i] = array[i];
                 }
@@ -47,11 +64,11 @@ namespace CustomList
             }
 
         }
-        
+
         public T[] CurrentArray()
         {
             T[] currentArray = new T[count];
-            for (int i = 0; i <count; i++)
+            for (int i = 0; i < count; i++)
             {
                 currentArray[i] = array[i];
             }
@@ -59,9 +76,36 @@ namespace CustomList
         }
 
 
+        public bool Remove(T item)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (array[i].Equals(item))
+                {
+                    count--;
+                    ShiftArray(i);
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        public void ShiftArray(int index)
+        {
+            T[] newArray = new T[capacity];
+
+            for (int i = index; i < count; i++)
+            {
+                newArray[i] = array[i + 1];
+            }
+            array = newArray;
+        }
+        
 
 
 
+        
 
 
 

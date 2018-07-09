@@ -21,7 +21,6 @@ namespace CustomListTesting
                        
             }
 
-
         [TestMethod]
    
         public void AddStringToArray()
@@ -38,7 +37,6 @@ namespace CustomListTesting
             Assert.AreEqual(expected, myList[0]);
 
         }
-
 
         [TestMethod]
 
@@ -75,31 +73,12 @@ namespace CustomListTesting
 
         }
 
-
-
-
-
-
-
         [TestMethod]
-        public void CheckingExceptionAdd()
-        {
-            int expected = 2;
 
-            MyList<int> myList = new MyList<int>();
-            myList.Add(1);
-
-
-            Assert.AreEqual(expected, myList[1]);
-
-        }
-
-
-        [TestMethod]
         public void AddingToCapacity()
         {
             //arrange
-            int expected = 10;
+            int expected = 15;
 
             //act
             MyList<int> mylist = new MyList<int>();
@@ -109,35 +88,53 @@ namespace CustomListTesting
             mylist.Add(67);
             mylist.Add(33);
             mylist.Add(69);
-
-
+            mylist.Add(63);
+            mylist.Add(102);
+            mylist.Add(23);
+            mylist.Add(67);
+            mylist.Add(33);
+            mylist.Add(69);
             //assert
             Assert.AreEqual(expected, mylist.capacity);
         }
 
 
-        [TestMethod]
-        public void AddTwoArrays()
-        {
-            // arrange
-            string[] arrayOne = { "b", "u" };
-            string[] arrayTwo = { "t", "t" };
+        //[TestMethod]
+        //public void CheckingExceptionAdd()
+        //{
+        //    int expected = 2;
 
-            string[,] expected = { { "b", "u", }, { "t", "t" } };
+        //    MyList<int> myList = new MyList<int>();
+        //    myList.Add(1);
 
 
-            //act
-            MyList<string[]> mylist = new MyList<string[]>();
-            mylist.Add(arrayOne);
-            mylist.Add(arrayTwo);
+        //    Assert.AreEqual(expected, myList[1]);
 
-            //assert
-            // Assert.AreEqual(expected[0,0], mylist[0]);
-            //  Assert.AreEqual(expected[0,1], mylist[1]);
+        //}
 
-            Assert.AreEqual(expected[0, 2], mylist[2]);
-            Assert.AreEqual(expected[0, 3], mylist[3]);
-        }
+
+        //[TestMethod]
+        //public void AddTwoArrays()
+        //{
+        //    // arrange
+        //    string[] arrayOne = { "b", "u" };
+        //    string[] arrayTwo = { "t", "t" };
+
+        //    string[,] expected = { { "b", "u", }, { "t", "t" } };
+
+
+        //    //act
+        //    MyList<string[]> mylist = new MyList<string[]>();
+        //    mylist.Add(arrayOne);
+        //    mylist.Add(arrayTwo);
+
+        //    //assert
+        //    // Assert.AreEqual(expected[0,0], mylist[0]);
+        //    //  Assert.AreEqual(expected[0,1], mylist[1]);
+
+        //    Assert.AreEqual(expected[0, 2], mylist[2]);
+        //    Assert.AreEqual(expected[0, 3], mylist[3]);
+        //}
 
     }
 }
