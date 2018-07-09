@@ -94,8 +94,9 @@ namespace CustomListTesting
 
         }
 
+
         [TestMethod]
-        public void checkingcounttonotchangewhenremoving1()
+        public void CheckingCountWhenNotRemoving()
         {
 
             // arrange

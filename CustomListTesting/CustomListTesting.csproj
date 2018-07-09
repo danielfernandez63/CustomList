@@ -48,6 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyListTestingRemoveOverload.cs" />
+    <Compile Include="MyListTestingAddOverload.cs" />
+    <Compile Include="MyListTestingToString.cs" />
     <Compile Include="MyListTestingRemove.cs" />
     <Compile Include="MyListTestingAdd.cs" />
     <Compile Include="CalculatorTesting.cs" />

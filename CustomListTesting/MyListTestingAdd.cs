@@ -95,7 +95,7 @@ namespace CustomListTesting
             mylist.Add(33);
             mylist.Add(69);
             //assert
-            Assert.AreEqual(expected, mylist.capacity);
+            Assert.AreEqual(expected, mylist.Capacity);
         }
 
 
@@ -113,28 +113,6 @@ namespace CustomListTesting
         //}
 
 
-        //[TestMethod]
-        //public void AddTwoArrays()
-        //{
-        //    // arrange
-        //    string[] arrayOne = { "b", "u" };
-        //    string[] arrayTwo = { "t", "t" };
-
-        //    string[,] expected = { { "b", "u", }, { "t", "t" } };
-
-
-        //    //act
-        //    MyList<string[]> mylist = new MyList<string[]>();
-        //    mylist.Add(arrayOne);
-        //    mylist.Add(arrayTwo);
-
-        //    //assert
-        //    // Assert.AreEqual(expected[0,0], mylist[0]);
-        //    //  Assert.AreEqual(expected[0,1], mylist[1]);
-
-        //    Assert.AreEqual(expected[0, 2], mylist[2]);
-        //    Assert.AreEqual(expected[0, 3], mylist[3]);
-        //}
 
     }
 }

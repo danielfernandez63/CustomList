@@ -10,23 +10,19 @@ namespace CustomList
     {
         T[] array;
         public int count;
-        public int capacity;
+        int capacity;
 
-        //public int Capacity()
-        //{
-        //    get
-        //        {
-        //         return capacity;
-
-        //    }
-        //     set
-        //        {
-
-
-        //    }
-           
-
-        //}
+        public int Capacity
+        {
+            get
+            {
+             return capacity;
+            }
+            set
+            {
+             capacity = value;
+            }
+        }
 
         public T this[int i] { get { return array[i]; } set { array[i] = value; } }
 
@@ -35,7 +31,6 @@ namespace CustomList
             capacity = 5;
             array = new T[capacity];
             count = 0;
-
         }
 
         public T[] Add(T item)
@@ -62,7 +57,6 @@ namespace CustomList
                 }
                 array = newArray;
             }
-
         }
 
         public T[] CurrentArray()
@@ -74,7 +68,6 @@ namespace CustomList
             }
             return currentArray;
         }
-
 
         public bool Remove(T item)
         {
@@ -103,9 +96,18 @@ namespace CustomList
         }
         
 
+        public override string ToString()
+        {
+            string stringArray = "";
+            if (count != 0)
+            {
+                for (int i = 0; i < count; i++)
+                    stringArray = Convert.ToString(array[i]);
+            }
 
-
-        
+            return stringArray;
+           
+        }
 
 
 
