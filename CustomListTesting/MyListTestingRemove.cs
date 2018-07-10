@@ -33,23 +33,19 @@ namespace CustomListTesting
 
 
         [TestMethod]
-
-        public void RemoveFromArrayAtEnd() //have to change to catch exception
+        [ExpectedException(typeof(System.IndexOutOfRangeException))]
+        public void RemoveFromArray() 
         {
-
-            // arrange
-           
-            int expected = 0;
-
+            //arrange 
+            
             //act
+
             MyList<int> myList = new MyList<int>();
-            myList.Add(1);
-            myList.Add(2);
-            myList.Add(3);
-            myList.Remove(3);
+            myList.Add(1);       
+            int x = myList[420];
 
             //assert
-            Assert.AreEqual(expected, myList[2]);
+           
         }
 
 

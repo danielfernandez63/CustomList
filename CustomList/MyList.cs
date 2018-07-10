@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class MyList<T>
+    public class MyList<T> : IEnumerable<T>
     {
-        T[] array;
+        T[] array { get; set; }
         public int count;
         int capacity;
 
@@ -23,8 +24,26 @@ namespace CustomList
              capacity = value;
             }
         }
+  
+        public T this[int i] //{ get { return array[i]; } set { array[i] = value; } }
+        {
+            get
+            {
+                if (i <= count)
+                {
+                    return array[i];
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
+            }
+            set
+            {
+                (array[i]) = value;
+            }
+        }
 
-        public T this[int i] { get { return array[i]; } set { array[i] = value; } }
 
         public MyList()
         {
@@ -98,19 +117,101 @@ namespace CustomList
 
         public override string ToString()
         {
-            string stringArray = "";
-            if (count != 0)
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < count; i++)
             {
-                for (int i = 0; i < count; i++)
-                    stringArray = Convert.ToString(array[i]);
-            }
+                stringBuilder.Insert(i, array[i]);
 
-            return stringArray;
+            }
+                return stringBuilder.ToString();       
            
         }
 
+        public static MyList<T> operator +(MyList<T> listOne, MyList<T> listTwo)
+        {
+            MyList<T> newList = new MyList<T>();
+            newList.array = listOne.array;
+            newList.count = listOne.count;
+               for(int i = 0; i < listTwo.count; i++)
+            {
+                newList.Add(listTwo.array[i]);
+            }
+
+            return newList;
+
+        }
+        public static MyList<T> operator -(MyList<T> listOne, MyList<T> listTwo)
+        {
+            MyList<T> newList = new MyList<T>();
+            newList = listOne;
+            bool isMatch;
 
 
+            for (int i = 0; i < listTwo.count; i++)
+            {
+                isMatch = false;
 
+                for (int j = 0; j < listOne.count; j++)
+                {
+                    if (listOne[j].Equals(listTwo[i]) == true)
+                    {
+                        isMatch = true;
+                    }
+
+                }
+               if (isMatch == false)
+                {
+                    newList.Add(listTwo.array[i]);
+                }
+            }
+
+            return newList;
+
+        }
+
+        public MyList<T> Zipper(MyList<T> listTwo)
+        {
+            MyList<T> currentArray = new MyList<T>();
+
+            for (int i =0; i < count && i < listTwo.count; i++)
+            {
+                currentArray.Add(array[i]);
+                currentArray.Add(listTwo[i]);
+            }
+
+            if (count > listTwo.count)
+            {
+                for (int j = count; j<(count-listTwo.count); j++)
+                {
+                    currentArray.Add(array[j]);
+                }
+            }
+
+            else if (listTwo.count > count)
+            {
+                for (int k = listTwo.count; k < (listTwo.count-count); k++)
+                {
+                    currentArray.Add(listTwo[k]);
+                }
+            }
+            this.array = currentArray.array;
+            this.count = currentArray.count;
+            return currentArray;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return array[i];
+
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+           
+        }
     }
 }

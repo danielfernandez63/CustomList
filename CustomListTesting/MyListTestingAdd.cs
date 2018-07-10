@@ -50,7 +50,7 @@ namespace CustomListTesting
             myList.Add(6);
             myList.Add(3);
 
-            //assert
+       
           //   Assert.AreEqual(expected[0], actual[0]);// dont really need to check the first number since its been checked before
             Assert.AreEqual(expected, myList[1]);
         }
@@ -94,6 +94,7 @@ namespace CustomListTesting
             mylist.Add(67);
             mylist.Add(33);
             mylist.Add(69);
+
             //assert
             Assert.AreEqual(expected, mylist.Capacity);
         }

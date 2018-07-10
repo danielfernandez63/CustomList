@@ -48,6 +48,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyListTestingZipperMethod.cs" />
+    <Compile Include="MyListTestingEnumerator.cs" />
     <Compile Include="MyListTestingRemoveOverload.cs" />
     <Compile Include="MyListTestingAddOverload.cs" />
     <Compile Include="MyListTestingToString.cs" />
