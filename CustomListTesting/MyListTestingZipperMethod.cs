@@ -39,7 +39,6 @@ namespace CustomListTesting
         }
 
 
-
         [TestMethod]
         public void x()
         {
@@ -51,7 +50,6 @@ namespace CustomListTesting
 
 
            // assert
-
 
         }
 

@@ -18,12 +18,10 @@ namespace CustomListTesting
             MyList<string> mylistOne = new MyList<string>();
             mylistOne.Add("Hello");
             mylistOne.Add("sir");
-            mylistOne.Add("scrufflelicious");
-            mylistOne.Add("!");
+            mylistOne.Add("scrufflelicious");          
 
             MyList<string> mylistTwo = new MyList<string>();
-            mylistTwo.Add("sir");
-            mylistTwo.Add("!");
+            mylistTwo.Add("sir");         
 
             string[] expected = { "Hello", "scrufflelicious" };
 

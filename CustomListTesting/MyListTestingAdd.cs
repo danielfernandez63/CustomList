@@ -43,12 +43,13 @@ namespace CustomListTesting
         public void AddTwoItemsToArray()
         {
             // arrange
-            int expected = 3;
+            int expected = 33;
 
             //act
             MyList<int> myList = new MyList<int>();
-            myList.Add(6);
-            myList.Add(3);
+            myList.Add(63);
+            myList.Add(33);
+            myList.Add(45);
 
        
           //   Assert.AreEqual(expected[0], actual[0]);// dont really need to check the first number since its been checked before

@@ -21,11 +21,11 @@ namespace CustomList
             }
             set
             {
-             capacity = value;
+                capacity = value;
             }
         }
-  
-        public T this[int i] //{ get { return array[i]; } set { array[i] = value; } }
+
+        public T this[int i]
         {
             get
             {
@@ -47,7 +47,7 @@ namespace CustomList
 
         public MyList()
         {
-            capacity = 5;
+            capacity = 10;
             array = new T[capacity];
             count = 0;
         }
@@ -61,7 +61,7 @@ namespace CustomList
             }
             array[count] = item;
             count++;
-            return CurrentArray();
+            return array;
         }
 
         public void MoreArrayNeeded()
@@ -78,15 +78,15 @@ namespace CustomList
             }
         }
 
-        public T[] CurrentArray()
-        {
-            T[] currentArray = new T[count];
-            for (int i = 0; i < count; i++)
-            {
-                currentArray[i] = array[i];
-            }
-            return currentArray;
-        }
+        //public T[] CurrentArray()
+        //{
+        //    T[] currentArray = new T[count];
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        currentArray[i] = array[i];
+        //    }
+        //    return currentArray;
+        //}
 
         public bool Remove(T item)
         {
@@ -105,26 +105,41 @@ namespace CustomList
 
         public void ShiftArray(int index)
         {
-            T[] newArray = new T[capacity];
+            T[] newArrayOne = new T[capacity];
+            T[] newArrayTwo = new T[capacity];
+
 
             for (int i = index; i < count; i++)
             {
-                newArray[i] = array[i + 1];
+                if (i < count)
+                {
+                    newArrayOne[i] = array[i + 1];
+                }
+                else
+                {
+                    newArrayTwo[i] = array[i];
+                }
+
             }
-            array = newArray;
+            //for (int i = index; i >= count; i++)
+            //{
+            //    newArray[i] = array[i];
+            //}
+
+            array = newArrayOne + newArrayTwo;
         }
-        
+
 
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < count; i++)
             {
-                stringBuilder.Insert(i, array[i]);
+                stringBuilder.Append(array[i]);
 
             }
-                return stringBuilder.ToString();       
-           
+            return stringBuilder.ToString();
+
         }
 
         public static MyList<T> operator +(MyList<T> listOne, MyList<T> listTwo)
@@ -161,7 +176,7 @@ namespace CustomList
                 }
                if (isMatch == false)
                 {
-                    newList.Add(listTwo.array[i]);
+                    newList.Remove(listTwo.array[i]);
                 }
             }
 
