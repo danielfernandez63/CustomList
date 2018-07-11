@@ -12,20 +12,18 @@ namespace CustomListTesting
         
             public void AddIntToArray()
             {
-            int expected = 1;
-
-            MyList<int> myList = new MyList<int>();
-            myList.Add(1);
-
-            Assert.AreEqual(expected, myList[0]);
-                       
+                int expected = 1;
+    
+                MyList<int> myList = new MyList<int>();
+                myList.Add(1);
+        
+                Assert.AreEqual(expected, myList[0]);                     
             }
 
         [TestMethod]
    
         public void AddStringToArray()
         {
-
             // arrange
             string expected = "dude";
 
@@ -35,7 +33,6 @@ namespace CustomListTesting
 
             //assert
             Assert.AreEqual(expected, myList[0]);
-
         }
 
         [TestMethod]
@@ -50,7 +47,6 @@ namespace CustomListTesting
             myList.Add(63);
             myList.Add(33);
             myList.Add(45);
-
        
           //   Assert.AreEqual(expected[0], actual[0]);// dont really need to check the first number since its been checked before
             Assert.AreEqual(expected, myList[1]);
@@ -71,7 +67,6 @@ namespace CustomListTesting
 
             //assert
             Assert.AreEqual(expected, mylist.count);
-
         }
 
         [TestMethod]
@@ -99,7 +94,6 @@ namespace CustomListTesting
             //assert
             Assert.AreEqual(expected, mylist.Capacity);
         }
-
 
         //[TestMethod]
         //public void CheckingExceptionAdd()

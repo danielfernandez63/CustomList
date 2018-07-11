@@ -12,7 +12,6 @@ namespace CustomListTesting
         [TestMethod]
         public void CheckingArrayToSeeChangeToString()
         {
-
             // arrange
             string expected = "123";
 
@@ -22,8 +21,6 @@ namespace CustomListTesting
             myList.Add(2);
             myList.Add(3);
             string actual = myList.ToString();
-
-
 
             //assert
             Assert.AreEqual(expected, actual);

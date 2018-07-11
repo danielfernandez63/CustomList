@@ -14,7 +14,6 @@ namespace CustomListTesting
         [TestMethod]
         public void OneListPlusAnotherStrings()
         {
-
             // arrange
             MyList<string> myListOne = new MyList<string>();
             myListOne.Add("Hello");
@@ -37,23 +36,6 @@ namespace CustomListTesting
             Assert.AreEqual(expected[6], actual[6]);
             Assert.AreEqual(expected[7], actual[7]);
         }
-
-
-        [TestMethod]
-        public void x()
-        {
-
-           // arrange
-
-
-         //  act
-
-
-           // assert
-
-        }
-
-
 
     }
 }

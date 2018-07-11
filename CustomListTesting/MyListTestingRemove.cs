@@ -8,13 +8,11 @@ namespace CustomListTesting
     [TestClass]
     public class MyListTestingRemove
     {
-       
-   
+      
         [TestMethod]
 
         public void RemoveFromCount()
         {
-
             // arrange
             
             string[] arrayOne = { "h", "i" };
@@ -30,14 +28,12 @@ namespace CustomListTesting
             Assert.AreEqual(expected, myList.count);
         }
 
-
-
         [TestMethod]
         [ExpectedException(typeof(System.IndexOutOfRangeException))]
         public void RemoveFromArray() 
         {
             //arrange 
-            
+         
             //act
 
             MyList<int> myList = new MyList<int>();
@@ -48,13 +44,11 @@ namespace CustomListTesting
            
         }
 
-
         [TestMethod]
 
         public void RemoveFromArrayCheckShift()
         {
             // arrange
-
             int expected = 2;
 
             //act
@@ -69,11 +63,11 @@ namespace CustomListTesting
         }
 
         [TestMethod]
-        public void RemoveSingleNumberWhenMultiplePresent()
+        public void RemoveAllNumberWhenMultiplePresent()
         {
 
             // arrange
-            int expected = 5;
+            int expected = 4;
 
             //act.
             MyList<int> myList = new MyList<int>();
@@ -87,14 +81,12 @@ namespace CustomListTesting
 
             //assert
             Assert.AreEqual(expected, myList.count);
-
         }
 
 
         [TestMethod]
         public void CheckingCountWhenNotRemoving()
         {
-
             // arrange
             int expected = 3;
 
@@ -107,7 +99,6 @@ namespace CustomListTesting
 
             //assert
             Assert.AreEqual(expected, myList.count);
-
         }
 
     }

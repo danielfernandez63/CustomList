@@ -22,10 +22,8 @@ namespace CustomListTesting
             mylistTwo.Add("!");
             string[] expected = { "Hello", "sir", "scrufflelicious", "!" };
 
-
             //act
             MyList<string> myList = mylistOne + mylistTwo;
-
 
             //assert
             Assert.AreEqual(expected[0], myList[0]);
